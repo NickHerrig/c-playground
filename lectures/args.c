@@ -1,10 +1,10 @@
 /*
- * Inputs: command line arguments 
- * Outputs: command line arguments
- * Purpose: This program takes command line arguments and prints them to std out.
+   Inputs: command line arguments 
+   Outputs: command line arguments
+   Purpose: This program takes command line arguments and prints them to std out.
 */
 
-#include <stdio.h>
+#include <stdio.h> // for printf
 
 int main(int args, char *argv[]) {
     printf("Arguments %d\n", args);
