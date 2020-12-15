@@ -10,21 +10,25 @@ server.c -- a minimal webserver written
 #include <netdb.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <arpa/inet.h>
 
 
 int main(void)
 {
     struct addrinfo hints, *servinfo, *p;
-    int status, sockfd;
+    int sockfd, new_fd;
     int yes=1;
+    struct sockaddr_storage their_addr;
+    socklen_t sin_size;
+    int rv;
 
     memset(&hints, 0, sizeof hints);
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_flags = AI_PASSIVE;
 
-    if ((status = getaddrinfo(NULL, "8080", &hints, &servinfo)) != 0) {
-        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(status));
+    if ((rv = getaddrinfo(NULL, "8080", &hints, &servinfo)) != 0) {
+        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
         exit(1);
     }
 
@@ -50,6 +54,30 @@ int main(void)
 
     freeaddrinfo(servinfo);
 
+    if (listen(sockfd, 20) == -1) {
+        perror("server: listen");
+        exit(1);
+    }
+
+    printf("server running and waiting for connections...\n");
+    
+    while(1) {
+        sin_size = sizeof their_addr;
+        new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
+        if (new_fd == -1) {
+            perror("accept");
+            continue;
+        }
+   
+        printf("server: recieved connection from client..\n");
+
+        char *res = "HTTP/1.1 200 OK\r\n\r\nHello World!";
+        if (send(new_fd, res, strlen(res), 0) == -1) {
+            perror("send");
+        }
+        close(new_fd);
+    }
+    
     close(sockfd);
 
     return 0;
