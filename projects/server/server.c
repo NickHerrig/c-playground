@@ -1,5 +1,5 @@
 /* 
-server.c -- a minimal webserver written
+server.c -- a minimal hello world webserver written in C
 */
 
 #include <stdio.h>
@@ -71,15 +71,11 @@ int main(void)
    
         printf("server: recieved connection from client..\n");
 
-        char *res = "HTTP/1.1 200 OK\r\n\r\nHello World!";
+        char *res = "HTTP/1.1 200 OK\r\nContent-Length: 14\r\n\r\nHello, world!\n";
         if (send(new_fd, res, strlen(res), 0) == -1) {
             perror("send");
         }
         close(new_fd);
     }
-    
-    close(sockfd);
-
     return 0;
-
 }
