@@ -42,3 +42,12 @@ hides details from the layer above ISA is the interface between the hardware and
 the low level software. this enables many differing implementations.  
 
 ## A safe place for data 
+Semiconductor DRAM memory, flash memory, and disk storage differ significantly. 
+For each technology, list its volatility, approximate relative access time, 
+and approximate relative cost compared to DRAM.
+DRAM: volatile, very fast 50 nanoseconds, $5-10 per GB
+FLASH: non-volatile, 5-50 microseconds, $.75-1 per GB
+DISK: non-volatile, 5-20 milliseconds, $0.05-0.10 per GB
+
+# Technologies for Building Processors and Memory 
+- transitor: Simple an on/off switch controlled by electricity
