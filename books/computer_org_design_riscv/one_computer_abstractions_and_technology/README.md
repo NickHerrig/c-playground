@@ -51,3 +51,17 @@ DISK: non-volatile, 5-20 milliseconds, $0.05-0.10 per GB
 
 # Technologies for Building Processors and Memory 
 - transitor: Simple an on/off switch controlled by electricity
+
+# CPU Performance
+Time = Seconds/Program = Instructions/Program  * Clock cycles/Instruction * Seconds/Clock cycle
+
+##Performance Components
+ | Component | Unit |
+ | --------  | ----- |
+ | CPU execution time for a program | Seconds for the program |
+ | Instruction Count | Instructions executed for a program |
+ | Clock cycles per instruction (CPI) | average clock cycles per instruction |
+ | Clock cycle time | Seconds per clock cycle | 
+
+
+
