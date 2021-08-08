@@ -16,4 +16,16 @@ to the size of a register in the RISC-V architecture.
 
 *Alignment Restrictoin*: A requirement that data be aligned in memory on natural boundaries.
 
-**:
+*Instruction Format*: A form of representation of an instruction composed of 
+fields of binary numbers.
+
+*Machine Language*: Binary represenation used for communication within a 
+computer system.
+
+# RISC-V Fields
+- opcode(7 bits): Basic op of the instruction.
+- rd(5 bits): the destination register. 
+- funct3(3 bits): an additional opt code field.
+- rs1(5 bits): The first register source operand.
+- rs2(5 bits): the second register source operand. 
+- fucnt7(7 bits): an additional opcode field.
