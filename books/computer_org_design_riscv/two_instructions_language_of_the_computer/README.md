@@ -29,3 +29,11 @@ computer system.
 - rs1(5 bits): The first register source operand.
 - rs2(5 bits): the second register source operand. 
 - fucnt7(7 bits): an additional opcode field.
+
+*AND*: calculates 1 if there is a one in both operands
+*OR*: calculates 1 if there is a one in either operands
+*NOT*: calculates the inverse of the bits
+*XOR*: calculates 1 if values are same, 0 if different
+
+*conditional branch*: instruction that tests a value, transfer control to new addr.
+
