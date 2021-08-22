@@ -37,3 +37,4 @@ computer system.
 
 *conditional branch*: instruction that tests a value, transfer control to new addr.
 
+*basic block*: sequence of instructions without branches.
